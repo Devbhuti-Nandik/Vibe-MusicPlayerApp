@@ -3,13 +3,13 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { StyleSheet } from "react-native";
 import { Screen_Names } from "./data/const";
-import { PrimaryColors } from "../theme/colors";
+import { PrimaryColors } from "../../theme/colors";
 
 //Screens
-import Home from "../screens/HomeScreen";
-import Search from "../screens/SearchScreen";
-import MusicList from "../screens/MusiclistScreen";
-import Account from "../screens/AccountScreen";
+import Search from "../../screens/SearchScreen";
+import MusicList from "../../screens/MusiclistScreen";
+import Account from "../../screens/AccountScreen";
+import HomeStackScreen from "./HomeStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -51,7 +51,7 @@ export default function Navigation() {
           },
         })}
       >
-        <Tab.Screen name={Screen_Names.homeName} component={Home} />
+        <Tab.Screen name={Screen_Names.homeName} component={HomeStackScreen} />
         <Tab.Screen name={Screen_Names.searchName} component={Search} />
         <Tab.Screen name={Screen_Names.musicListName} component={MusicList} />
         <Tab.Screen name={Screen_Names.accountName} component={Account} />
@@ -62,8 +62,8 @@ export default function Navigation() {
 const styles = StyleSheet.create({
   tabBarStyle: {
     position: "absolute",
-    backgroundColor: "transparent",
+    backgroundColor: PrimaryColors.primaryBlack,
     borderTopWidth: 0,
-    bottom: 16,
+    height: 55,
   },
 });
